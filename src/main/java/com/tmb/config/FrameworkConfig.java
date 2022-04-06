@@ -1,10 +1,10 @@
 package com.tmb.config;
 
-import com.tmb.config.converters.StringToBrowserTypeConverter;
-import com.tmb.config.converters.StringToURLConverter;
+import com.tmb.config.converters.*;
 import com.tmb.enums.BrowserRemoteModeType;
 import com.tmb.enums.BrowserType;
-import com.tmb.enums.RunModeBrowserType;
+import com.tmb.enums.MobileRemoteModeType;
+import com.tmb.enums.RunModeType;
 import org.aeonbits.owner.Config;
 
 import java.net.URL;
@@ -22,10 +22,20 @@ public interface FrameworkConfig extends Config {
     BrowserType browser();
 
     @Key("runModeBrowser")
-    RunModeBrowserType browserRunMode();
+    @ConverterClass(StringToRunModeBrowserTypeConverter.class)
+    RunModeType browserRunMode();
 
     @Key("browserRemoteMode")
+    @ConverterClass(StringToRemoteModeBrowserTypeConverter.class)
     BrowserRemoteModeType browserRemoteMode();
+
+    @Key("runModeMobile")
+    @ConverterClass(StringToRunModeBrowserTypeConverter.class)
+    RunModeType mobileRunMode();
+
+    @Key("mobileRemoteMode")
+    @ConverterClass(StringToMobileRemoteModeTypeConverter.class)
+    MobileRemoteModeType mobileRemoteMode();
 
     @ConverterClass(StringToURLConverter.class)
     URL seleniumGridURL();
@@ -33,5 +43,7 @@ public interface FrameworkConfig extends Config {
     @ConverterClass(StringToURLConverter.class)
     URL selenoidURL();
 
-
+    @ConverterClass(StringToURLConverter.class)
+    @DefaultValue("http://127.0.0.1:4723/wd/hub")
+    URL localAppiumServerURL();
 }

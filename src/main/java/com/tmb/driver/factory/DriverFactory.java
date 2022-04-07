@@ -1,10 +1,11 @@
 package com.tmb.driver.factory;
 
-import com.tmb.driver.entity.DriverData;
-import com.tmb.driver.factory.mobile.local.LocalMobileDriverFactory;
-import com.tmb.driver.factory.mobile.remote.RemoteMobileDriverFactory;
-import com.tmb.driver.factory.web.local.LocalDriverFactory;
-import com.tmb.driver.factory.web.remote.RemoteDriverFactory;
+import com.tmb.driver.LocalMobileDriverImpl;
+import com.tmb.driver.LocalWebDriverImpl;
+import com.tmb.driver.RemoteMobileDriverImpl;
+import com.tmb.driver.RemoteWebDriverImpl;
+import com.tmb.driver.intity.MobileDriverData;
+import com.tmb.driver.intity.WebDriverData;
 import com.tmb.enums.RunModeType;
 import org.openqa.selenium.WebDriver;
 
@@ -12,20 +13,14 @@ public final class DriverFactory {
 
     private DriverFactory(){}
 
-    public static WebDriver getDriverForWeb(DriverData driverData){
-        if(driverData.getRunModeType() == RunModeType.LOCAL){
-            return LocalDriverFactory.getDriver(driverData.getBrowserType());
-        } else {
-            return RemoteDriverFactory.getDriver(driverData.getBrowserRemoteModeType()
-                    ,driverData.getBrowserType());
-        }
+    public static WebDriver getDriverForWeb(WebDriverData driverData){
+        return driverData.getRunModeType() == RunModeType.LOCAL
+                ? new LocalWebDriverImpl().getDriver(driverData)
+                : new RemoteWebDriverImpl().getDriver(driverData);
     }
-    public static WebDriver getDriverForMobile(DriverData driverData){
-        if(driverData.getRunModeType() == RunModeType.LOCAL){
-            return LocalMobileDriverFactory.getDriver(driverData.getMobilePlatformType());
-        } else {
-            return RemoteMobileDriverFactory.getDriver(driverData.getMobileRemoteModeType()
-                    ,driverData.getMobilePlatformType());
-        }
+    public static WebDriver getDriverForMobile(MobileDriverData driverData){
+        return driverData.getRunModeType() == RunModeType.LOCAL
+                ? new LocalMobileDriverImpl().getDriver(driverData)
+                : new RemoteMobileDriverImpl().getDriver(driverData);
     }
 }

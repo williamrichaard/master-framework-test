@@ -1,7 +1,8 @@
 package com.tmb.driver;
 
-import com.tmb.driver.entity.DriverData;
 import com.tmb.driver.factory.DriverFactory;
+import com.tmb.driver.intity.MobileDriverData;
+import com.tmb.driver.intity.WebDriverData;
 import com.tmb.enums.MobilePlatformType;
 import org.openqa.selenium.WebDriver;
 
@@ -13,7 +14,7 @@ public final class Driver {
     //local web , remote web, local mobile , remote mobile
 
     public static void initDriverForWeb() {
-        DriverData driverData = DriverData.builder()
+        WebDriverData driverData = WebDriverData.builder()
                 .browserType(getConfig().browser())
                 .browserRemoteModeType(getConfig().browserRemoteMode())
                 .runModeType(getConfig().browserRunMode())
@@ -22,7 +23,7 @@ public final class Driver {
         driver.quit();
     }
     public static void initDriverForMobile(){
-        DriverData driverData = DriverData.builder()
+        MobileDriverData driverData = MobileDriverData.builder()
                 .mobilePlatformType(MobilePlatformType.ANDROID)
                 .mobileRemoteModeType(getConfig().mobileRemoteMode())
                 .runModeType(getConfig().mobileRunMode())

@@ -2,15 +2,13 @@ package com.tmb.driver.intity;
 
 import com.tmb.enums.BrowserRemoteModeType;
 import com.tmb.enums.BrowserType;
-import com.tmb.enums.RunModeType;
-import lombok.Builder;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@Builder
+@AllArgsConstructor
 @Getter
 public class WebDriverData {
 
     private BrowserType browserType;
     private BrowserRemoteModeType browserRemoteModeType;
-    private RunModeType runModeType;
 }

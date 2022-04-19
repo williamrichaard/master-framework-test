@@ -1,4 +1,4 @@
-package com.tmb.driver.manager.mobile.remote;
+package com.tmb.driver.manager.mobile.remote.browserstack;
 
 import com.tmb.config.factory.BrowserStackConfigFactory;
 import org.openqa.selenium.WebDriver;

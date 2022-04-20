@@ -11,7 +11,7 @@ public class StringToBrowserTypeConverter implements Converter<BrowserType> {
     public BrowserType convert(Method method, String browserName) {
         Map<String, BrowserType> stringBrowserTypeMap = Map.
                 of("CHROME", BrowserType.CHROME,
-                "FIREFOX", BrowserType.FIREFOX);
+                        "FIREFOX", BrowserType.FIREFOX);
 
         return stringBrowserTypeMap
                 .getOrDefault(browserName.toUpperCase(),BrowserType.CHROME);

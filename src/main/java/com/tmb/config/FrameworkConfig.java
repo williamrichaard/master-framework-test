@@ -46,4 +46,5 @@ public interface FrameworkConfig extends Config {
     @ConverterClass(StringToURLConverter.class)
     @DefaultValue("http://127.0.0.1:4723/wd/hub")
     URL localAppiumServerURL();
+
 }

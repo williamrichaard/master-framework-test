@@ -1,11 +1,8 @@
 package com.tmb.driver.factory.mobile.remote;
 
 
-import com.tmb.driver.manager.mobile.remote.BrowserStackAndroidManager;
-import com.tmb.driver.manager.mobile.remote.BrowserStackIosManager;
-import com.tmb.driver.manager.web.remote.browserstack.BrowserStackChromeManager;
-import com.tmb.driver.manager.web.remote.browserstack.BrowserStackFirefoxManager;
-import com.tmb.enums.BrowserType;
+import com.tmb.driver.manager.mobile.remote.browserstack.BrowserStackAndroidManager;
+import com.tmb.driver.manager.mobile.remote.browserstack.BrowserStackIosManager;
 import com.tmb.enums.MobilePlatformType;
 import org.openqa.selenium.WebDriver;
 

@@ -1,10 +1,11 @@
-package com.tmb.driver;
+package com.tmb.driver.impl.mobile;
 
+import com.tmb.driver.IMobileDriver;
 import com.tmb.driver.factory.mobile.local.LocalMobileDriverFactory;
 import com.tmb.driver.intity.MobileDriverData;
 import org.openqa.selenium.WebDriver;
 
-public class LocalMobileDriverImpl implements IMobileDriver{
+public class LocalMobileDriverImpl implements IMobileDriver {
 
     @Override
     public WebDriver getDriver(MobileDriverData driverData) {
